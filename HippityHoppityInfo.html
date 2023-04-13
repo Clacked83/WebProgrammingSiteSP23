@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Meme Compendium</title>
+    <link rel="stylesheet" href="memes.css">
+    <script src="memeScript.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="Memes.html">Home</a>
+        <a href="profile.html">Profile</a>
+    </nav>
+<div id="content">   
+    <div id="showcase">
+        <img id="meme" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4704656.jpg&f=1&nofb=1&ipt=fad23bdda3a9ce8589ebff6f1df15cee25415d623cd2d7b6af20f66102e03001&ipo=images"
+        alt="Frog holding double-barrel shotgun with caption: 'Hippity Hoppity get off my property.'">
+    </div>
+    <div id="description">
+        <p>
+           e.x. "Hippity Hoppity Get of my property."
+           This is one of the most recognizable examples of Hippity Hoppity Get Off My Property. 
+           Here are some other variations.
+        </p>
+    <div id="examples"> <!--CSS styling need here -->
+        <img src="" alt="">
+        <img src="" alt="">
+        <img src="" alt="">
+    </div>
+    </div>
+    <label for="addToFav"></label>
+    <input type="button" id="addToFav" value="Add to Favorites">
+    <script>
+        //Trying to add websocket functionality 
+        //Would save href of this page as a list item on an SQL server,
+        //allowing us to load it on the home page to the Favorites list
+        function addToFav(){
+            document.getElementById('addToFav').addEventListener('click', ()=>{
+                let url = "";
+                let websocket = new WebSocket(url);
+            });
+        }
+    </script>
+
+
+
+    <span id="href" class="hidden">HippityHoppityInfo.html</span>
+</div>
+    
+</body>
+</html>

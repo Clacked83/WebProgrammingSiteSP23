@@ -1,0 +1,32 @@
+#meme{
+    width: 150px;
+    height: 150px;
+}
+
+#showcase{
+    display: flex;
+    justify-content: center;
+}
+
+#description{
+    display: flex;
+    justify-content: center;
+}
+
+/* #content{
+    
+} */
+
+/* #examples{
+
+} */
+
+#favorites{
+    float: left;
+    width: 200px;
+    height: 180px;
+ }
+
+ nav{
+    margin: 5px;
+ }
