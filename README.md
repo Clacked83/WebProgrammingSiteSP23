@@ -14,6 +14,8 @@ CSS tag compatibility
 Javascript:
 Translate python login code to javascript
 
+Change add button function ot add meme as HTML img element, to be displayed in viewport
+
 
 
 
