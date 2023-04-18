@@ -3,12 +3,11 @@
   float: right;
 }
 
-.topleft{
+.topRight{
   position: absolute;
-} 
+}
 
 img { 
-  width: 150px;
-  height: 100px;
-  /* opacity: 0.3; */
+  width: 300px;
+  height: 250px;
 }
