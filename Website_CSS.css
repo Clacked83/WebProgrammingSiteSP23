@@ -1,9 +1,10 @@
 .container {
   position: relative;
+  float: right;
 }
 
 .topleft{
-  float: right;
+  position: absolute;
 } 
 
 img { 
