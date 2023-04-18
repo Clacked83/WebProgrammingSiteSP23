@@ -1,11 +1,10 @@
 .container {
   position: relative;
-  float: right;
 }
 
-/* .topRight{
-  
-} */
+.topleft{
+  float: right;
+} 
 
 img { 
   width: 150px;
