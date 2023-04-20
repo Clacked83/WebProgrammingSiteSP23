@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <title>Best Meme Compendium</title>
-    <link rel="stylesheet" href="Website_CSS.css">
-    <script src="memeScript.js"></script>
+    <!-- <link rel="stylesheet" href="Website_CSS.css"> -->
+    <link rel="stylesheet" href="memes.css">
+    <!-- <script src="memeScript.js"></script>    -->
     <script src="memeDev.js"></script>
 </head>
 <body>
@@ -13,24 +14,57 @@
         <a href="profile.html">Profile</a>
     </nav>
     <div class ="container">
-        <img id="viewport" src="https://gsrc.ucr.edu/sites/default/files/styles/form_preview/public/kronk.gif?itok=wQfBUXXg"/>
-        <div class = "topRight"></div>
+        <img id="viewport" style="float:right;" src="https://gsrc.ucr.edu/sites/default/files/styles/form_preview/public/kronk.gif?itok=wQfBUXXg">
+        <div class = "topleft"></div>
+    </div>
+    <div id="allMemes">
+        
     </div>
 <div id="content"> 
+    <!-- <div id="memeList">
+        <h1>Favorites</h1>
+        <input type="text" placeholder="Insert Meme Link" id="item">
+        <input type="text" placeholder="Meme Name" id="linkName">
+        <input type="button" id="addBtn" value="Add">
+        <ol>
+            <!-- <a href="HippityHoppityInfo.html">Hippity Hoppity</a> -->
+        <!-- </ol> -->
     <div id="favorites">
         <h1>Favorites</h1>
         <input type="text" placeholder="Insert Meme Link" id="item">
         <input type="text" placeholder="Meme Name" id="linkName">
-
         <input type="button" id="addBtn" value="Add">
-        <ol>
-            <!-- <a href="HippityHoppityInfo.html">Hippity Hoppity</a> -->
+        <ol id="favMemes" >
+            <input type="button" class="meme" id='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.G1w8oYnaF7oTX6cdSkk9tQHaHa%26pid%3DApi&f=1&ipt=9f6cf628f15a7df08afac449dc25bde24e462135b463226d0331d5ef1c805992&ipo=imaages'
+            name='Hop' value='Hop' onclick='postToSelect(document.querySelector("input[name='Hop'"))></input>
+            <input type="button" class="meme" id='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6d%2Ff2%2F76%2F6df276576b715a5a1079976e328126a3.jpg&f=1&nofb=1&ipt=bab9f06d2a36db1ba013de207c96850fe699cc7b40503067d4ba3ebc31c464b0&ipo=images'
+            name='Cat' value='Cat' onclick='postToSelect()'></input>
         </ol>
         <input type="button" id="clearBtn" value="Clear Favorites">
 
-        <!-- Debug Tools -->
+        <input type="text" id="selection">
+        <input type="button" id="view" value="View">
+        <input type="text" id="Name">
+        <input type="button" id="getID" value="Get ID">
+        <div id="debugTools">
+            <input type="button" id="display" value="Display Local Storage">
+    </div>
+
+<script>
+    let Name = document.getElementById('Name').value
+    document.getElementById('getID').addEventListener('click', postToSelect());
+
+    function postToSelect(link){
+        document.getElementById('selection').value = link.replace(/['"]+/g, '');
+}
+</script>
+        
+    
+
+        
+        <!-- Debug Tools
         <input type="button" id="save" value="Save">
-        <input type="button" id="load" value="Load">
+        <input type="button" id="load" value="Load"> -->
     </div> 
 </div>
 </body>
