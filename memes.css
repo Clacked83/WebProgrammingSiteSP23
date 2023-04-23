@@ -21,12 +21,46 @@
 
 } */
 
-#favorites{
+#menu{
     float: left;
     width: 200px;
-    height: 180px;
+    height: 200px;
+    border: 5px; 
+    border-color: silver; 
+    border-style: groove; 
  }
 
  nav{
-    margin: 5px;
+    margin: auto;
+    border: 5px;
+    border-color: blue;
  }
+
+
+ #memes{
+    top: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    float: none;
+    width: 1600px;
+    position: absolute;
+    margin: auto;
+ }
+h2{
+    top: 320px; 
+
+}
+
+.meme{
+    width: 180px;
+    height: 150px;
+    border: 5px;
+    border-color: gold; 
+    border-style: groove;
+}
+ /* #viewport{
+    display: flex;
+    float: right;
+    position: absolute;
+ } */
+

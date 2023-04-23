@@ -1,31 +1,31 @@
 //Meme Dev Tools
 let localStorageArray = [];
+let memeSrc;
 //document.querySelector('input#selection').value = '';
 
+
+//TODO: 
+// Add height and width parameter support
+// Add 'are you sure?' alert for clear memes button
 window.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#addBtn").addEventListener("click", saveLinkToLocal);
+    document.querySelector("#clearInputs").addEventListener("click", clearFields);
     document.querySelector("#clearBtn").addEventListener("click", clearMemes);
     document.querySelector("#display").addEventListener("click", displayLocalStorage);
-    document.querySelector("#view").addEventListener("click", changeImgV2);
+    // document.querySelector("#view").addEventListener("click", changeImgV2);
+    // document.querySelector("#selection").addEventListener("click", ()=>{
+    //     document.querySelector("#selection").value = '';
+   // });
     
     //localStorageArray = loadList;
     localStorageArray = loadList();
 
-      for(i of localStorageArray){
+    for(i of localStorageArray){
         let memeLink = i.memeLink;
         let memeName = i.memeName;
         addLinksToList(memeLink, memeName);
-        //querySelector('#'+memeLink+'').addEventListener('click', changeImg(memeLink));
-      }
-    // buttons();
-   
-
+    }
 });
-
-function postToSelectV2(link){
-    document.getElementById('selection').value = link;
-    document.querySelector('.meme').addEventListener('click', postToSelectV2())
-}
 
 function saveLinkToLocal(){
     let item = document.querySelector('#item').value
@@ -38,46 +38,47 @@ function saveLinkToLocal(){
             "memeLink":"\""+item+"\"",
             "memeName":"\""+linkName+"\""
             };
-        addLinksToList(meme.memeLink, meme.memeName);
+        
+       
         localStorageArray.push(meme);
         let memeJSON = JSON.stringify(localStorageArray);
         localStorage.setItem("storedArray", memeJSON);
-        let memeNameStr = meme.memeName.replace(/['"]+/g, '');
-        document.querySelector('input[name="'+memeNameStr+'"]').addEventListener('click', postToSelect(meme.memeLink));
 
+        addLinksToList(meme.memeLink, meme.memeName);
+        //let memeNameStr = meme.memeName.replace(/['"]+/g, '');
     }
        
-            // localStorageArray = localStorageArray.toString();
-         //    addMemeToAll(meme.memeLink, meme.memeName);
+        // localStorageArray = localStorageArray.toString();
+        //    addMemeToAll(meme.memeLink, meme.memeName);
         // document.querySelector('#item').value = '';
         // document.querySelector('#linkName').value = '';
     }    
 
-function postToSelect(link){
-    document.getElementById('selection').value = link.replace(/['"]+/g, '');
+function postToSelect(){
+    document.getElementById('selection').value = 'href';  //link.replace(/['"]+/g, '');
 }
 
-function addLinksToList(memeLink, memeName){
-    
-    let list = document.querySelector('ol');
-   // list.innerHTML +=  `<li>${memeName}</li>`; 
-    let meme = '<input type="button" class="meme" id='+ memeLink +' name='+memeName+' value='+memeName+'></input>';
-    list.innerHTML += `<li>${meme}</li>`;
-
-    // if(localStorageArray){
-    //     let list = document.querySelector('ol');
-    //     for(i of localStorageArray){     
-            
-    //     }
-    // } 
+function postToSelectV2(link){
+    document.getElementById('selection').value = link;
+    document.querySelector('.meme').addEventListener('click', postToSelectV2())
 }
 
-//     item = "<input type=\"button\" id=\"meme\" value=\""+linkName+"\" onclick=\""+changeImg(item)+"\"></input>";
-//   //  memeButton =     // 
+
+function addLinksToList(memeLink, memeName){  
+    memeLink = memeLink.replace(/['"]+/g, '');
+    let list = document.querySelector('#memes');
+    //let meme = '<button type="button" class="meme" id="'+ memeLink +'" name='+memeName+' value='+memeName+'>'+memeName+'</button>';
+    //let meme = '<span>'+memeName+'</span><input type="button" class="meme" id="'+ memeLink +'" name='+memeName+' value='+memeName+'>'  
+    list.innerHTML += '<img class ="meme" src="'+memeLink+'"></img>';
+    //document.getElementById(memeLink).addEventListener('click', postToSelect);
+}
+
+//item = "<input type=\"button\" id=\"meme\" value=\""+linkName+"\" onclick=\""+changeImg(item)+"\"></input>";
 
 function loadList() {
     let savedList = localStorage.getItem("storedArray");
     savedList = JSON.parse(savedList);
+
     if(savedList != null){
         return savedList;
     } else {
@@ -102,10 +103,11 @@ function changeImgV2(){
 }
 
 function clearMemes(){
-    let list = document.querySelector('ol');
+    let list = document.querySelector('#memes');
     list.innerHTML = "";
     localStorageArray = [];
     localStorage.clear();
+    document.getElementById('selection').value = '';
  }
 
  function getId(i){
@@ -122,7 +124,6 @@ function clearMemes(){
     list.innerHTML += '<img src="'+link+'" alt="'+name+'" >';
  }
 
-
  function addButton(){
     document.querySelectorAll('#favorites').forEach(element => {
         element.addEventListener('click', changeImg(element.src));
@@ -130,11 +131,16 @@ function clearMemes(){
     
  }
 
-
+function changeMemeSrc(){
+    memeSrc = document.querySelector('#selection').value.replace(/['"]+/g, '');
+    console.log(memeSrc);
+}
     // let buttonArray = document.querySelectorAll('#favMemes');
     // for(i of buttonArray){
     //     i.addEventListener('click', changeImg(i.id) );
     // }
- 
 
-
+    function clearFields(){
+        document.querySelector('#item').value = '';
+        document.querySelector('#linkName').value = '';
+    }
