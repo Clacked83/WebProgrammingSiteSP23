@@ -2,7 +2,7 @@
 CSCI 3000 SP23 Website Project Code
 
 TODO:
-Make sure memeDev.js and Meme.html are playing nice
+Make sure memeDev.js and Meme.html are playing nice(DONE)
 
 CSS for website
 
@@ -14,7 +14,7 @@ CSS tag compatibility
 Javascript:
 Translate python login code to javascript
 
-Change add button function ot add meme as HTML img element, to be displayed in viewport
+Change add button function ot add meme as HTML img element, to be displayed in viewport(CHANGED)
 
 
 
