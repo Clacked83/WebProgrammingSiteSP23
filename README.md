@@ -6,6 +6,30 @@ Make sure memeDev.js and Meme.html are playing nice(DONE)
 Add redirect to userReg.html to send user back to login
 Add functionality to compare entries in SQL database to user login information 
 
+Mandatory Basic features(DONE) 85% Grade
+- Html
+- CSS
+- Form
+- JavaScript
+- LocalStorage or SessionStorage
+- NodeJS
+- MySQL
+- Images
+
+Mandatory Advanced features 15% Grade
+CSS:
+- Using Box Model
+- Styling forms, buttons, textboxes, etc.
+- Make your website look more professional.
+
+JavaScript:
+- Using Ajax or Fetch API for asynchronous http requests to back-end.
+- Form validation
+
+WebSocket(if there is a chat component in your project)
+
+
+
 CSS for website:
 login page
 home page
