@@ -11,7 +11,8 @@ window.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#addBtn").addEventListener("click", saveLinkToLocal);
     document.querySelector("#clearInputs").addEventListener("click", clearFields);
     document.querySelector("#clearBtn").addEventListener("click", clearMemes);
-    document.querySelector("#display").addEventListener("click", displayLocalStorage);
+    // document.querySelector("#display").addEventListener("click", displayLocalStorage);
+  //  document.querySelector("#displayUsers").addEventListener("click", displayUsers);
     // document.querySelector("#view").addEventListener("click", changeImgV2);
     // document.querySelector("#selection").addEventListener("click", ()=>{
     //     document.querySelector("#selection").value = '';
@@ -27,9 +28,10 @@ window.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+
 function saveLinkToLocal(){
     let item = document.querySelector('#item').value
-    let linkName = document.querySelector('#linkName').value
+    let linkName = '' //document.querySelector('#linkName').value
 
     if (item == null || linkName == null){
         alert('Invalid input');

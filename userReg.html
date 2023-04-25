@@ -6,10 +6,9 @@
       <link href="memes.css" rel="stylesheet">
       <!-- <script src="memeDev.js" defer></script> -->
    </head>
-
    <body>
       <div id="form_Background"></div>
-      <h1>MyMemes Login</h1>
+      <h1>User Registration</h1>
       <form method="post" action="/form_process">
          <div>
             <label for="username">Username:</label>
@@ -17,18 +16,28 @@
             <input type="text" id="username" name="username" class="placeholder">
          </div>
          <div>
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" id="email" name="email" class="placeholder">
+         </div>
+         <div>
             <label for="password">Password:</label>
             <br>
             <input type="password" id="password" name="password" class="placeholder">
+         </div>
+         <div>
+            <label for="passwordConfirm">Confirm Password:</label>
+            <br>
+            <input type="password" id="passwordConfirm" name="passwordConfirm" class="placeholder">
          </div>
          <div id="formErrors" class="hide">
             
          </div>
          <div id="formSubmit">
-            <input type="submit" id="submit" value="Login">
-            <a href="userReg.html">Create Account?</a>
-            <!-- <input type="submit" id="login" value="Login"> -->
+            <input type="submit" id="submit" value="Submit">
          </div>
       </form>
    </body>
 </html>
+
+
