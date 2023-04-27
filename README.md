@@ -1,11 +1,6 @@
 # WebProgrammingSiteSP23
 CSCI 3000 SP23 Website Project Code
-
-TODO:
-Make sure memeDev.js and Meme.html are playing nice(DONE)
-Add redirect to userReg.html to send user back to login
-Add functionality to compare entries in SQL database to user login information 
-
+ 
 Mandatory Basic features(DONE) 85% Grade
 - Html
 - CSS
