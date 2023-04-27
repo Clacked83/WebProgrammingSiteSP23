@@ -17,16 +17,17 @@ Mandatory Basic features(DONE) 85% Grade
 - Images
 
 Mandatory Advanced features 15% Grade
+
 CSS:
-- Using Box Model
-- Styling forms, buttons, textboxes, etc.
+- Using Box Model(DONE)
+- Styling forms, buttons, textboxes, etc.(DONE)
 - Make your website look more professional.
 
-JavaScript:
-- Using Ajax or Fetch API for asynchronous http requests to back-end.
-- Form validation
+JavaScript:(DONE)
+- Using Ajax or Fetch API for asynchronous http requests to back-end.(DONE)
+- Form validation(DONE)
 
-WebSocket(if there is a chat component in your project)
+WebSocket(if there is a chat component in your project)(N/A)
 
 
 
