@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>Profile</title>
-    <link rel="stylesheet" href="memes.css">
-    <script src="memeScript.js"></script>
+	<meta charset="UTF-8">
+	<title>Profile</title>
+	<link rel="stylesheet" href="memes.css">
+	<script src="memeScript.js"></script>
 </head>
 <body>
-    <nav>
-        <a href="Memes.html">Home</a>
-        <a href="profile.html">Profile</a>
-    </nav>
+	<div class="container">
+		<div class="header">
+			<div class="profile-pic">
+				<img src="profile-pic.jpg" alt="Profile Picture">
+				<button onclick="changePic()">Change</button>
+			</div>
+			<h1>Username</h1>
+		</div>
+		<form class="profile-form">
+			<label for="username">Create Username:</label>
+			<input type="text" id="username" name="username" required>
+			<label for="color-scheme">Color Scheme:</label>
+			<select id="color-scheme" name="color-scheme">
+				<option value="default">Default</option>
+				<option value="dark">Dark</option>
+				<option value="light">Light</option>
+			</select>
+			<label for="new-password">New Password:</label>
+			<input type="password" id="new-password" name="new-password" required>
+			<label for="confirm-password">Confirm New Password:</label>
+			<input type="password" id="confirm-password" name="confirm-password" required>
+			<input type="submit" value="Save Changes">
+		</form>
+	</div>
 </body>
 </html>
