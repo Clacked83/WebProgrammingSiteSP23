@@ -4,32 +4,77 @@
 	<meta charset="UTF-8">
 	<title>Profile</title>
 	<link rel="stylesheet" href="memes.css">
-	<script src="memeScript.js"></script>
+	<!-- <script src="memeDev.js"></script> -->
+    <script src="profile.js" defer></script>
 </head>
 <body>
-	<div class="container">
-		<div class="header">
-			<div class="profile-pic">
-				<img src="profile-pic.jpg" alt="Profile Picture">
-				<button onclick="changePic()">Change</button>
-			</div>
-			<h1>Username</h1>
-		</div>
-		<form class="profile-form">
-			<label for="username">Create Username:</label>
-			<input type="text" id="username" name="username" required>
-			<label for="color-scheme">Color Scheme:</label>
-			<select id="color-scheme" name="color-scheme">
-				<option value="default">Default</option>
-				<option value="dark">Dark</option>
-				<option value="light">Light</option>
-			</select>
-			<label for="new-password">New Password:</label>
-			<input type="password" id="new-password" name="new-password" required>
-			<label for="confirm-password">Confirm New Password:</label>
-			<input type="password" id="confirm-password" name="confirm-password" required>
-			<input type="submit" value="Save Changes">
-		</form>
-	</div>
+    <!-- <div class ="container">
+        <img id="viewport" style="float:right; width: 150px; height: 150px; border: 5px; border-color: blue; border-style: groove;" src="">
+        <div class = "topleft"></div>
+    </div>   -->
+    <h1>Change Account Info</h1>
+
+    <div id ="form_Background">	    
+        <form method="post" action="/profile">
+            <div class="">
+                <label for="oldName">Old Username:</label>
+                <br>
+                <input type="text" id="oldName" name="oldName">
+            </div>               
+            <div>
+                <label for="newName">New Username:</label>
+                <br>
+                <input type="text" id="newName" name="newName" required>
+            </div>
+            <!-- <label for="color-scheme">Color Scheme:</label>
+            <select id="color-scheme" name="color-scheme">
+                <option value="default">Default</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+            </select> -->
+            <div>
+                <label for="email">Update email:</label>
+                <br>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="oldPass">Enter Old Password:</label>
+                <br>
+                <input type="password" id="oldPass" name="oldPass" required>
+            </div>
+            <div>
+                <label for="newPass">Enter New Password:</label>
+                <br>
+                <input type="password" id="newPass" name="newPass" required>
+            </div>
+            <div>
+                <label for="passwordConfirm">Confirm New Password:</label>
+                <br>
+                <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+            </div>                         
+            <span style="position: relative; top: 1%;">
+            <input type="submit" id="submit" value="Save Changes" style="color: gold; background-color: black;" disabled > 
+            <a id="back" href="Memes.html">Back To Home</a>
+            </span>   
+        </form>    
+         <!-- <div class="profile-pic">
+            <img src="profile-pic.jpg" alt="Profile Picture">
+            <button onclick="changePic()">Change</button>
+        </div> -->
+	    </div>
+    <div id="formErrors" class="hidden" style="top: 75%;">
+        <li id="usernameError" class="hidden">Missing full name.</li>
+        <li id="emailError" class="hidden">Invalid or missing email address.</li>
+        <li id="passwordLengthError" class="hidden">New password must be between 10 and 20 characters.</li>
+        <li id="lowerCaseError" class="hidden">New password must contain at least one lowercase character.</li>
+        <li id="upperCaseError" class="hidden">New password must contain at least one uppercase character.</li>
+        <li id="digitError" class="hidden">New password must contain at least one digit.</li>
+        <li id="matchError" class="hidden">New password must not match old password</li>
+        <li id="passwordConfirmError" class="hidden">Password and confirmation password don't match.</li>
+    </div>    
+    <script>
+        let oldName = localStorage.getItem('username');
+        document.getElementById('oldName').value = oldName;
+    </script>   
 </body>
 </html>

@@ -26,59 +26,114 @@ conn.connect(function(err) {
     }
 });
 
-//Select html from folder
-app.get("/userReg", function(req, res) {
-    res.send("<h1>Hello, Express!</h1>");
-});
-
 //Select Folder
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: false}));
 
+let users = [];
+
 app.post("/form_process", function(req, res) {
-    const newUser = { username: req.body.username, password: req.body.password, email: req.body.email, passwordConfirm: req.body.passwordConfirm };
-    conn.query("INSERT INTO userlogins SET ?", newUser, function(err, result) {
-        if (err) {
-            console.log("ERROR:", err);
-            res.send("Error in insertion!");
+    const newUser = { username: req.body.username, password: req.body.password, email: req.body.email};
+        conn.query("INSERT INTO users SET ?", newUser, function(err, result) {
+            if (err) {
+                console.log("ERROR:", err);
+                let html = "<a href='userReg.html' style='position: absolute; left: 43%; top: 22%;'>Return to Registration</a>";
+                html += '<link rel="stylesheet" href="memes.css">';
+                html += '<h1>Error in insertion!</h1>';
+                res.send(html);
+
+            } else {
+                console.log("Inserted " + result.affectedRows + " row"); // Success!
+                res.writeHead(301, {
+                    location: 'http://localhost:3000/memeLoginPage.html'
+                }).end();          
+            }      
+        });
+    }
+);
+
+
+let username;
+let password;
+
+app.post("/login", function(req, res) {
+    const user = {
+                username: req.body.username, 
+                password: req.body.password,
+                }; 
+    username = user.username.replace(/['"]+/g, '');
+    password = user.password.replace(/['"]+/g, '');
+    conn.query("SELECT username, password from users WHERE username=\"" + username + "\" AND password=\"" + password + "\"", function(err, result) {
+        if (result[0] == null) {
+            console.log("ERROR:" + err);
+            let html = '';
+            html+= '<link rel="stylesheet" href="memes.css">';
+            html+= '<p>User not found!</p>';
+            html+= '<a href = "memeLoginPage.html">Back to login page</a>';
+            res.send(html);           
         } else {
-            console.log("Inserted " + result.affectedRows + " row"); // Success!
-           // res.send("Success!")
+            console.log(result); // Success!
             res.writeHead(301, {
                 location: 'http://localhost:3000/Memes.html'
-            }).end();
-           
-        }
+            }).end();          
+        }      
     });
 });
 
+app.get('/user', (req, res)=>{
+    res.send(username);
+})
+
 app.get("/all", function(req, res) {
-    conn.query("SELECT * FROM userlogins", function(err, rows) {
+    conn.query("SELECT * FROM users", function(err, rows) {
         if (err) {
             console.log("ERROR:", err);
         } else {
             // Produce ordered list of people
-            let html = "<ol>";
+            let html = "<ul>";
             html+= '<link rel="stylesheet" href="memes.css">';
             rows.forEach(function(row) {
-                html += "<li>" + row.username + ", " + row.email + ", " + row.password + ", " + row.passwordConfirm + "</li>";
+                html += "<li>" + row.username + "</li>";//", " + row.email + ", " + row.password + ", " + row.passwordConfirm + "</li>";
             });
-            html += "</ol>";
-            html += "<a href='Memes.html'>Return to Home</a>";           
+            html += "</ul>";
+            html += "<a id='back' href='Memes.html' style='position: absolute; left: 43%; top: 15%;'>Back to Home</a>";           
             res.send(html);
         }
     });
 });
 
 
-function displayUsers(){
-    conn.query("SELECT username, password, email, confirmPassword FROM userlogins", function(err, rows) {
-        if (err) {
-            console.log("ERROR:", err);
-        } else { 
-            rows.forEach(function(row) {
-                console.log(row.username + ", " + row.password + ", " + row.email + ", " + row.passwordConfirm);
-            });
-        }
+app.post("/profile", function(req, res) {
+    const userinfo = {
+                oldName: req.body.oldName,
+                newName: req.body.newName, 
+                email: req.body.email,
+                oldPass: req.body.oldPass,
+                newPass: req.body.newPass
+                }; 
+    let oldName = userinfo.oldName.replace(/['"]+/g, '');
+    let newName = userinfo.newName.replace(/['"]+/g, '');
+    let email = userinfo.email.replace(/['"]+/g, '');
+    let oldPass = userinfo.oldPass.replace(/['"]+/g, '');
+    let newPass = userinfo.newPass.replace(/['"]+/g, '');
+    conn.query("SELECT username, password from users WHERE username=\"" + oldName + "\" AND password=\"" + oldPass + "\"", function(err, result) {
+        if (result[0] == null) {
+            console.log("ERROR:" + err);
+            let html = '';
+            html+= '<link rel="stylesheet" href="memes.css">';
+            html+= '<p>User not found!</p>';
+            html+= '<a href = "memeLoginPage.html">Back to login page</a>';
+            res.send(html);           
+        } else {
+            var sql = "UPDATE users SET username=\""+ newName +"\", password=\""+newPass+"\", email=\""+ email +"\" WHERE username = '"+oldName+"'";
+            conn.query(sql, (err, result)=>{
+                if (err) throw err;
+                console.log(result.affectedRows + " record(s) updated");
+                username = newName;
+                res.writeHead(301, {
+                    location: 'http://localhost:3000/Memes.html'
+                }).end(); 
+            });     
+        }      
     });
-}
+});

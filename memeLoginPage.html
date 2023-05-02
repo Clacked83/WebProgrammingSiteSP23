@@ -8,27 +8,24 @@
    </head>
 
    <body>
-      <div id="form_Background"></div>
       <h1>MyMemes Login</h1>
-      <form method="post" action="/form_process">
-         <div>
-            <label for="username">Username:</label>
-            <br>
-            <input type="text" id="username" name="username" class="placeholder">
-         </div>
-         <div>
-            <label for="password">Password:</label>
-            <br>
-            <input type="password" id="password" name="password" class="placeholder">
-         </div>
-         <div id="formErrors" class="hide">
-            
-         </div>
-         <div id="formSubmit">
-            <input type="submit" id="submit" value="Login">
-            <a href="userReg.html">Create Account?</a>
-            <!-- <input type="submit" id="login" value="Login"> -->
-         </div>
-      </form>
+      <div id="form_Background">
+         <form method="post" action="/login">
+            <div>
+               <label for="username">Username:</label>
+               <br>
+               <input type="text" id="username" name="username" class="placeholder">
+            </div>
+            <div>
+               <label for="password">Password:</label>
+               <br>
+               <input type="password" id="password" name="password" class="placeholder">
+            </div>
+            <div>
+               <input type="submit" id="submit" value="Submit" style="color: gold; background-color: black;"> 
+               <a href="userReg.html">Create Account?</a>
+            </div>
+         </form>
+      </div>
    </body>
 </html>

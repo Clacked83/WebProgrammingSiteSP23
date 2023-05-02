@@ -4,39 +4,46 @@
       <meta charset="UTF-8">
       <title>User Registration</title>
       <link href="memes.css" rel="stylesheet">
+      <script src="regForm.js" defer></script> 
       <!-- <script src="memeDev.js" defer></script> -->
    </head>
    <body>
-      <div id="form_Background"></div>
       <h1>User Registration</h1>
-      <form method="post" action="/form_process">
-         <div>
-            <label for="username">Username:</label>
-            <br>
-            <input type="text" id="username" name="username" class="placeholder">
-         </div>
-         <div>
-            <label for="email">Email:</label>
-            <br>
-            <input type="email" id="email" name="email" class="placeholder">
-         </div>
-         <div>
-            <label for="password">Password:</label>
-            <br>
-            <input type="password" id="password" name="password" class="placeholder">
-         </div>
-         <div>
-            <label for="passwordConfirm">Confirm Password:</label>
-            <br>
-            <input type="password" id="passwordConfirm" name="passwordConfirm" class="placeholder">
-         </div>
-         <div id="formErrors" class="hide">
-            
-         </div>
-         <div id="formSubmit">
-            <input type="submit" id="submit" value="Submit">
-         </div>
-      </form>
+      <div id="form_Background">      
+         <form method="post" action="/form_process">
+            <div>
+               <label for="username">Username:</label>
+               <br>
+               <input type="text" id="username" name="username" class="placeholder">
+            </div>
+            <div>
+               <label for="email">Email:</label>
+               <br>
+               <input type="email" id="email" name="email" class="placeholder">
+            </div>
+            <div>
+               <label for="password">Password:</label>
+               <br>
+               <input type="password" id="password" name="password" class="placeholder">
+            </div>
+            <div>
+               <label for="passwordConfirm">Confirm Password:</label>
+               <br>
+               <input type="password" id="passwordConfirm" name="passwordConfirm" class="placeholder">
+            </div>    
+            <input type="submit" id="submit" value="Submit" style="color: gold; background-color: black;" disabled > 
+            <a id="back" href="memeLoginPage.html">Back to Login</a>      
+         </form>      
+      </div>
+      <div id="formErrors" class="hidden">
+         <li id="usernameError" class="hidden">Missing full name.</li>
+         <li id="emailError" class="hidden">Invalid or missing email address.</li>
+         <li id="passwordLengthError" class="hidden">Password must be between 10 and 20 characters.</li>
+         <li id="lowerCaseError" class="hidden">Password must contain at least one lowercase character.</li>
+         <li id="upperCaseError" class="hidden">Password must contain at least one uppercase character.</li>
+         <li id="digitError" class="hidden">Password must contain at least one digit.</li>
+         <li id="passwordConfirmError" class="hidden">Password and confirmation password don't match.</li>
+      </div>
    </body>
 </html>
 

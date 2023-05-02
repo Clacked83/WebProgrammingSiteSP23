@@ -1,11 +1,48 @@
 body{
-    background-color: rgb(30 30 30);
+    background: linear-gradient(10deg, rgb(10 10 10), rgb(50 50 50));
     color: white;
 }
-/* ol{
-   border: 5px; 
-   border-color: silver; 
-} */
+
+#viewport{
+    width: 500px; 
+    height: 300px;
+    border: 5px; 
+    border-color: blue; 
+    border-style: groove;
+    position: absolute;
+}
+
+#viewport2{
+    position: absolute;
+    left: 66%;
+    width: 500px; 
+    height: 300px;
+    border: 5px; 
+    border-color: blue; 
+    border-style: groove;
+}
+
+.meme{
+    width: 270px;
+    height: 225px;
+    border: 5px;
+    border-color: gold; 
+    border-style: groove;
+}
+
+ul{
+    display: block;
+    float: none;
+    padding: 10px;
+    padding-left: 30px;
+    border-color: silver;
+    border-style: groove;
+    position: absolute;
+    left: 43%;
+    top: 20%;
+    height: auto;
+    width: auto;
+}
 
 a{
     color: gold;
@@ -26,50 +63,46 @@ a{
     justify-content: center;
 }
 
-/* #content{
-    
-} */
-
-/* #examples{
-
-} */
-
-#menu {
-    width: 190px;
+#menu{
+    width: 192px;
     height: 20px;
+    padding: 10px;
+    padding-left: 0px;
     border: 5px;
     position: relative;
     left: -5%;
     top: 0%;
     margin: 10px;
-  }
-
- h1{
-    position: relative;
-    left: 5%;
-    top: 286%;
 }
 
-#menuBorder {
+h1{
+    position: absolute;
+    left: 40%;
+    top: 14%;
+}
+
+#menuBorder{
     display: block;
     float: none;
+    padding: 10px;
     border-color: silver;
     border-style: groove;
     position: absolute;
-    left: 43%;
-    top: 35%;
+    left: 42%;
+    top: 28%;
     height: 81px;
-    width: 187px;
-  }
+    width: 190px;
+}
 
- nav{
-    margin: auto;
-    border: 5px;
-    border-color: blue;
+nav{
+        margin: auto;
+        border: 5px;
+        border-color: blue; 
+        position: relative;     
  }
 
 
- #memes{
+#memes{
     top: 350px;
     left: 60px;
     display: flex;
@@ -78,40 +111,30 @@ a{
     width: 1600px;
     position: absolute;
     margin: auto;
- }
- h2 {
+}
+
+h2 {
     position: absolute;
     left: 43%;
-    top: 70%;
-  }
-
-.meme{
-    width: 270px;
-    height: 225px;
-    border: 5px;
-    border-color: gold; 
-    border-style: groove;
+    top: 62%;
 }
- /* #viewport{
-    display: flex;
-    float: right;
-    position: absolute;
- } */
+
+
 
 form{
-    position: fixed;
-    left: 45%;
-    top: 34%;
+    position: relative;
     border: 5px;
     border-color: gold;
     border-style: groove;
+    margin: 20px;
+    padding: 10px;
 }
 
 
 
 #form_Background{
-    width: 300px;
-    height: 322px;
+    width: auto;
+    height: auto;
     position: absolute;
     left: 40%;
     top: 25%;
@@ -132,6 +155,36 @@ form{
    float: none;
 }
 
+
+#addBtn, #clearBtn, #clearInputs{
+    color: gold; 
+    background-color: black;
+    margin: 1px;
+}
+
+#back{
+    color: gold;
+    background-color: black;
+    padding: 1px;
+    border: 2px;
+    border-color: silver;
+    border-style: outset;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13.3333px;
+}
+
 #login{
     float: none;
+ }
+
+ .hidden{
+    display: none;
+ }
+
+ #formErrors{
+    color: red;
+    position: absolute;
+    top: 63%;
+    left: 37%;
  }
