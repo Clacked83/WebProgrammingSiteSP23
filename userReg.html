@@ -4,32 +4,31 @@
       <meta charset="UTF-8">
       <title>User Registration</title>
       <link href="memes.css" rel="stylesheet">
-      <script src="regForm.js" defer></script> 
-      <!-- <script src="memeDev.js" defer></script> -->
+      <script src="regForm.js" defer></script>
    </head>
    <body>
-      <h1>User Registration</h1>
+      <h1 style="left: 42.4%;">User Registration</h1>
       <div id="form_Background">      
          <form method="post" action="/form_process">
             <div>
                <label for="username">Username:</label>
                <br>
-               <input type="text" id="username" name="username" class="placeholder">
+               <input type="text" class="input" id="username" name="username" class="placeholder">
             </div>
             <div>
                <label for="email">Email:</label>
                <br>
-               <input type="email" id="email" name="email" class="placeholder">
+               <input type="email" class="input" id="email" name="email" class="placeholder">
             </div>
             <div>
                <label for="password">Password:</label>
                <br>
-               <input type="password" id="password" name="password" class="placeholder">
+               <input type="password" class="input" id="password" name="password" class="placeholder">
             </div>
             <div>
                <label for="passwordConfirm">Confirm Password:</label>
                <br>
-               <input type="password" id="passwordConfirm" name="passwordConfirm" class="placeholder">
+               <input type="password" class="input" id="passwordConfirm" name="passwordConfirm" class="placeholder">
             </div>    
             <input type="submit" id="submit" value="Submit" style="color: gold; background-color: black;" disabled > 
             <a id="back" href="memeLoginPage.html">Back to Login</a>      

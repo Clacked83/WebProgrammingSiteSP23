@@ -3,7 +3,7 @@ body{
     color: white;
 }
 
-#viewport{
+#viewport2{
     width: 500px; 
     height: 300px;
     border: 5px; 
@@ -12,7 +12,7 @@ body{
     position: absolute;
 }
 
-#viewport2{
+#viewport{
     position: absolute;
     left: 66%;
     width: 500px; 
@@ -38,7 +38,7 @@ ul{
     border-color: silver;
     border-style: groove;
     position: absolute;
-    left: 43%;
+    left: 45%;
     top: 20%;
     height: auto;
     width: auto;
@@ -88,7 +88,7 @@ h1{
     border-color: silver;
     border-style: groove;
     position: absolute;
-    left: 42%;
+    left: 42.8%;
     top: 28%;
     height: 81px;
     width: 190px;
@@ -103,23 +103,25 @@ nav{
 
 
 #memes{
-    top: 350px;
-    left: 60px;
+    top: 50%;
+    left: 4%;
     display: flex;
     flex-wrap: wrap;
     float: none;
-    width: 1600px;
+    width: 100%;
     position: absolute;
     margin: auto;
 }
 
 h2 {
     position: absolute;
-    left: 43%;
+    left: 43.5%;
     top: 62%;
 }
 
-
+.input{
+    width: 191px;
+}
 
 form{
     position: relative;
@@ -136,7 +138,7 @@ form{
     width: auto;
     height: auto;
     position: absolute;
-    left: 40%;
+    left: 41%;
     top: 25%;
     background-color: rgb(90 90 90);
     border: 5px;
@@ -186,5 +188,5 @@ form{
     color: red;
     position: absolute;
     top: 63%;
-    left: 37%;
+    left: 39%;
  }

@@ -25,6 +25,12 @@ function checkForm(){
         newName = document.querySelector("#newName").value;
       }
 
+      // if(document.querySelector("#profilePic").value == null) {
+      //    formErrors.innerHTML += "<li>Profile picture is null.</li>"
+      // } else {
+      //   newName = document.querySelector("#profile-pic").value;
+      // }
+
       if(document.querySelector("#email").value == null) {
          formErrors.innerHTML += "<li>Email is null.</li>"
       } else {
@@ -129,7 +135,7 @@ function checkForm(){
       // xhr.open("GET", 'http://localhost:3000/hasError', true);
    }
 
-document.querySelector('form').addEventListener("input", function(event) {
+document.querySelector('form').addEventListener("input", ()=> {
     document.getElementById('formErrors').setAttribute("class", "hide");
     checkForm();
 

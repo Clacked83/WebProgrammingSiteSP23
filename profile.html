@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Profile</title>
+	<title>Profile Info</title>
 	<link rel="stylesheet" href="memes.css">
 	<!-- <script src="memeDev.js"></script> -->
     <script src="profile.js" defer></script>
@@ -16,15 +16,15 @@
 
     <div id ="form_Background">	    
         <form method="post" action="/profile">
-            <div class="">
+            <div>
                 <label for="oldName">Old Username:</label>
                 <br>
-                <input type="text" id="oldName" name="oldName">
+                <input type="text" class="input" id="oldName" name="oldName">
             </div>               
             <div>
                 <label for="newName">New Username:</label>
                 <br>
-                <input type="text" id="newName" name="newName" required>
+                <input type="text" class="input" id="newName" name="newName" required>
             </div>
             <!-- <label for="color-scheme">Color Scheme:</label>
             <select id="color-scheme" name="color-scheme">
@@ -35,25 +35,25 @@
             <div>
                 <label for="email">Update email:</label>
                 <br>
-                <input type="text" id="email" name="email" required>
+                <input type="text" class="input" id="email" name="email" required>
             </div>
             <div>
                 <label for="oldPass">Enter Old Password:</label>
                 <br>
-                <input type="password" id="oldPass" name="oldPass" required>
+                <input type="password" class="input" id="oldPass" name="oldPass" required>
             </div>
             <div>
                 <label for="newPass">Enter New Password:</label>
                 <br>
-                <input type="password" id="newPass" name="newPass" required>
+                <input type="password" class="input" id="newPass" name="newPass" required>
             </div>
             <div>
                 <label for="passwordConfirm">Confirm New Password:</label>
                 <br>
-                <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+                <input type="password" class="input" id="passwordConfirm" name="passwordConfirm" required>
             </div>                         
             <span style="position: relative; top: 1%;">
-            <input type="submit" id="submit" value="Save Changes" style="color: gold; background-color: black;" disabled > 
+            <input type="submit" id="submit" value="Save Changes" style="color: gold; background-color: black;" disabled> 
             <a id="back" href="Memes.html">Back To Home</a>
             </span>   
         </form>    
@@ -63,7 +63,7 @@
         </div> -->
 	    </div>
     <div id="formErrors" class="hidden" style="top: 75%;">
-        <li id="usernameError" class="hidden">Missing full name.</li>
+        <li id="usernameError" class="hidden">Missing new username.</li>
         <li id="emailError" class="hidden">Invalid or missing email address.</li>
         <li id="passwordLengthError" class="hidden">New password must be between 10 and 20 characters.</li>
         <li id="lowerCaseError" class="hidden">New password must contain at least one lowercase character.</li>

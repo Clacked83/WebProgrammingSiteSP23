@@ -30,8 +30,8 @@ conn.connect(function(err) {
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: false}));
 
-let users = [];
 
+//Process form data from user registration
 app.post("/form_process", function(req, res) {
     const newUser = { username: req.body.username, password: req.body.password, email: req.body.email};
         conn.query("INSERT INTO users SET ?", newUser, function(err, result) {
@@ -53,8 +53,12 @@ app.post("/form_process", function(req, res) {
 );
 
 
+
+
+//Compare user credentials to databse
 let username;
 let password;
+let pic;
 
 app.post("/login", function(req, res) {
     const user = {
@@ -66,10 +70,10 @@ app.post("/login", function(req, res) {
     conn.query("SELECT username, password from users WHERE username=\"" + username + "\" AND password=\"" + password + "\"", function(err, result) {
         if (result[0] == null) {
             console.log("ERROR:" + err);
-            let html = '';
-            html+= '<link rel="stylesheet" href="memes.css">';
+            let html = '<div id="menuBorder">';
             html+= '<p>User not found!</p>';
             html+= '<a href = "memeLoginPage.html">Back to login page</a>';
+            html+= '<link rel="stylesheet" href="memes.css"></div>';
             res.send(html);           
         } else {
             console.log(result); // Success!
@@ -80,10 +84,12 @@ app.post("/login", function(req, res) {
     });
 });
 
+//Get and send current username to home page
 app.get('/user', (req, res)=>{
     res.send(username);
 })
 
+//Diplay all users
 app.get("/all", function(req, res) {
     conn.query("SELECT * FROM users", function(err, rows) {
         if (err) {
@@ -96,13 +102,14 @@ app.get("/all", function(req, res) {
                 html += "<li>" + row.username + "</li>";//", " + row.email + ", " + row.password + ", " + row.passwordConfirm + "</li>";
             });
             html += "</ul>";
-            html += "<a id='back' href='Memes.html' style='position: absolute; left: 43%; top: 15%;'>Back to Home</a>";           
+            html += "<a id='back' href='Memes.html' style='position: absolute; left: 46.2%; top: 15%;'>Back to Home</a>";           
             res.send(html);
         }
     });
 });
 
-
+//Update profile information
+//TODO: if profile-pic = null, do not update
 app.post("/profile", function(req, res) {
     const userinfo = {
                 oldName: req.body.oldName,
@@ -122,10 +129,10 @@ app.post("/profile", function(req, res) {
             let html = '';
             html+= '<link rel="stylesheet" href="memes.css">';
             html+= '<p>User not found!</p>';
-            html+= '<a href = "memeLoginPage.html">Back to login page</a>';
-            res.send(html);           
+            html+= '<a href = "Memes.html">Back to login page</a>';
+            res.send(html);
         } else {
-            var sql = "UPDATE users SET username=\""+ newName +"\", password=\""+newPass+"\", email=\""+ email +"\" WHERE username = '"+oldName+"'";
+            sql = "UPDATE users SET username=\""+ newName +"\", password=\""+newPass+"\", email=\""+ email +"\" WHERE username = '"+oldName+"'";         
             conn.query(sql, (err, result)=>{
                 if (err) throw err;
                 console.log(result.affectedRows + " record(s) updated");

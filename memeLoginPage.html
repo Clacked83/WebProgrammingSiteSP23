@@ -2,30 +2,34 @@
 <html lang="en">
    <head>   
       <meta charset="UTF-8">
-      <title>User Registration</title>
+      <title>MyMemes Login</title>
       <link href="memes.css" rel="stylesheet">
-      <!-- <script src="memeDev.js" defer></script> -->
+      <script src="login.js" defer></script>
    </head>
 
    <body>
-      <h1>MyMemes Login</h1>
+      <h1 style="left: 42.5%;">MyMemes Login</h1>
       <div id="form_Background">
          <form method="post" action="/login">
             <div>
                <label for="username">Username:</label>
                <br>
-               <input type="text" id="username" name="username" class="placeholder">
+               <input type="text" class="input" id="username" name="username" class="placeholder">
             </div>
             <div>
                <label for="password">Password:</label>
                <br>
-               <input type="password" id="password" name="password" class="placeholder">
+               <input type="password" class="input" id="password" name="password" class="placeholder">
             </div>
             <div>
                <input type="submit" id="submit" value="Submit" style="color: gold; background-color: black;"> 
-               <a href="userReg.html">Create Account?</a>
+               <a id="back" href="userReg.html">Create Account?</a>
             </div>
          </form>
       </div>
+      <div id="formErrors" class="hidden" style="top: 53%; left: 44%">
+         <li id="usernameError" class="hidden">Please enter username</li>      
+         <li id="passwordLengthError" class="hidden">Please enter password</li>
+     </div>   
    </body>
 </html>

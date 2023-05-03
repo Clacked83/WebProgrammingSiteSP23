@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Best Meme Compendium</title>
+    <title>MyMemes</title>
     <link rel="stylesheet" href="memes.css">
     <script src="memeDev.js" defer></script>
 </head>
@@ -30,7 +30,9 @@
     <div id="memes" style="border: 5px; border-color: black;">
     </div>  
     <script>
-        let user;
+        let user;// = localStorage.getItem('username');
+        let pic;// = localStorage.getItem('userpic');
+
         async function getUser() {
             let res = await fetch('http://localhost:3000/user')
             res.text().then((data)=>{
@@ -46,10 +48,25 @@
             document.querySelector('#user').textContent = 'Hello ' + user +'!';
         }
 
+        // async function getPic() {
+        //     let res = await fetch('http://localhost:3000/pic')
+        //     res.text().then((data)=>{
+        //         document.querySelector('#pic').innerHTML = '<img src='+ data +' >';
+        //         pic = data;
+        //         localStorage.setItem('userpic', pic);
+        //     });
+        // }
+
+        // if(pic == null){   
+        //     getPic();
+        // } else {
+        //     document.querySelector('#pic').innerHTML = '<img src='+ pic +' >';
+        // }
+
         function addCronk(){
             let cronk = document.querySelector('#cronk');
-            // cronk.innerHTML += '<img id="viewport" src="https://gsrc.ucr.edu/sites/default/files/styles/form_preview/public/kronk.gif?itok=wQfBUXXg">';
-            cronk.innerHTML += '<img id="viewport2" src="https://gsrc.ucr.edu/sites/default/files/styles/form_preview/public/kronk.gif?itok=wQfBUXXg">';
+            // cronk.innerHTML += '<img id="viewport2" src="https://gsrc.ucr.edu/sites/default/files/styles/form_preview/public/kronk.gif?itok=wQfBUXXg">';
+            cronk.innerHTML += '<img id="viewport" src="https://gsrc.ucr.edu/sites/default/files/styles/form_preview/public/kronk.gif?itok=wQfBUXXg">';
         } addCronk();
     </script>
 </body>

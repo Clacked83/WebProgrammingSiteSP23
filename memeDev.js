@@ -59,8 +59,9 @@ function saveLinkToLocal(){
 //Add images to page
 function addLinksToList(memeLink, belongsTo){  
     memeLink = memeLink.replace(/['"]+/g, '');
+    belongsTo = belongsTo.replace(/['"]+/g, '');
     let list = document.querySelector('#memes');  
-    list.innerHTML += '<img class ="meme" src="'+memeLink+'"></img>';
+    list.innerHTML += '<div id="memeContainer" ><img class ="meme" src="'+memeLink+'"></img><br><span>Added by '+ belongsTo +'</span></div>';
     document.querySelector('h2').className = 'hidden';
 }
 
@@ -79,7 +80,7 @@ function loadList() {
 //Clear input field
 function clearFields(){
     document.querySelector('#item').value = '';
-    document.querySelector('#linkName').value = '';
+    // document.querySelector('#linkName').value = '';
 }
 
 //Clear all images and clear local storage
